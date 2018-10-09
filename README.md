@@ -22,3 +22,23 @@ PUT /image < (user.id)
   Increment the `user.entries` value for the indicated user.
 
 **By default, the server listens on port 3000**
+
+## DB Requirments
+You will need a PostgreSQL server (or change it if you wish).
+
+Database tables required are:
+```sql
+CREATE TABLE users (
+	id serial PRIMARY KEY,
+	name varchar(100),
+	email text UNIQUE NOT NULL,
+	entries bigint DEFAULT 0,
+	joined timestamp NOT NULL
+);
+
+CREATE TABLE login (
+	id serial PRIMARY KEY,
+	email text UNIQUE NOT NULL,
+	hash varchar(100) NOT NULL
+);
+```
