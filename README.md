@@ -4,8 +4,10 @@ The Node.js server component for the Face Recognition App.
 
 To run:
 1. Clone the repo
-2. run `npm install`
-3. run `npm start`
+2. Set **DATABASE_URL** environement variable to your `postgres://` connection string.
+3. Set the Environment variable *CLARIFAI_KEY* to your API Key from [Clarifai](https://clarifai.com)
+3. run `npm install`
+4. run `npm start`
 
 Use the [Face Recognition app](https://github.com/kennithnichol/face-recognition) to interact with the API, or build your own app.
 
@@ -21,7 +23,7 @@ GET /profile/:id < ( user.id)
 PUT /image < (user.id)
   Increment the `user.entries` value for the indicated user.
 
-**By default, the server listens on port 3000**
+**By default, the server listens on port 3000 unless a `process.env.PORT` is found**
 
 ## DB Requirments
 You will need a PostgreSQL server (or change it if you wish).
