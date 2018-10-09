@@ -30,6 +30,7 @@ server.post('/signin', signin.handleSignin(db, bcrypt))
 server.post('/register', register.handleRegister(db, bcrypt))
 server.get('/profile/:id', profile.handleProfileGet(db))
 server.put('/image', image.handleImage(db))
+server.post('/imageurl', image.handleApiCall)
 
 server.listen(3000, () => {
 	console.log('Server is running on port 3000');
