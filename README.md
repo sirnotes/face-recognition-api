@@ -7,7 +7,7 @@ To run:
 2. run `npm install`
 3. run `npm start`
 
-Use the (Face Recognition app)[https://github.com/kennithnichol/face-recognition] to interact with the API, or build your own app.
+Use the [Face Recognition app](https://github.com/kennithnichol/face-recognition) to interact with the API, or build your own app.
 
 ## Endpoints
 GET /
