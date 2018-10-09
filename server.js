@@ -32,6 +32,6 @@ server.get('/profile/:id', profile.handleProfileGet(db))
 server.put('/image', image.handleImage(db))
 server.post('/imageurl', image.handleApiCall)
 
-server.listen(proces.env.PORT || 3000, () => {
-	console.log(`Server is running on port ${prcoess.env.PORT}`);
+server.listen(process.env.PORT || 3000, () => {
+	console.log(`Server is running on port ${process.env.PORT}`);
 });
