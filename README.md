@@ -12,16 +12,13 @@ To run:
 Use the [Face Recognition app](https://github.com/kennithnichol/face-recognition) to interact with the API, or build your own app.
 
 ## Endpoints
-GET /
-  List users
-POST /signin < (email, password)
-  Validate a user
-POST /register < (email, name, password)
-  register a new user
-GET /profile/:id < ( user.id)
-  Get the profile of a specified user
-PUT /image < (user.id)
-  Increment the `user.entries` value for the indicated user.
+
+- `GET /` List users
+- `POST /signin` (:email,:password) Validate a user
+- `POST /register` (:email, :name, :password) Register a new user
+- `GET /profile/:id` (:user.id) Get the profile of a specified user
+- `PUT /image` (:user.id) Increment the `user.entries` value for the indicated user
+- `GET /imageurl` (:input) Detect faces in the specified image URL
 
 **By default, the server listens on port 3000 unless a `process.env.PORT` is found**
 
