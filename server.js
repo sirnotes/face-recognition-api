@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
+const morgan = require('morgan');
 
 const index = require('./controllers/index');
 const register = require('./controllers/register');
@@ -22,6 +23,7 @@ const server = express();
 
 server.use(bodyParser.json());
 server.use(cors());
+server.use(morgan('combined'));
 
 server.get('/', index.handleIndex(db))
 server.post('/signin', signin.handleSignin(db, bcrypt))
