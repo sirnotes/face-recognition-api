@@ -7,7 +7,7 @@ CREATE TABLE users (
 	entries BIGINT DEFAULT 0,
 	joined TIMESTAMP NOT NULL,
 	pet text,
-	age varchar(3)
+	age varchar(100)
 );
 
 COMMIT;
