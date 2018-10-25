@@ -29,6 +29,7 @@ server.get('/', index.handleIndex(db))
 server.post('/signin', signin.handleSignin(db, bcrypt))
 server.post('/register', register.handleRegister(db, bcrypt))
 server.get('/profile/:id', profile.handleProfileGet(db))
+server.post('/profile/:id', profile.handleProfileUpdate(db))
 server.put('/image', image.handleImage(db))
 server.post('/imageurl', image.handleApiCall)
 
