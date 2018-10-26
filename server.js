@@ -11,6 +11,7 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
+const auth = require('./middleware/authorization');
 
 const db = knex({
 	client: 'pg',
@@ -28,10 +29,10 @@ server.use(morgan('combined'));
 server.get('/', index.handleIndex(db))
 server.post('/signin', signin.authSignin(db, bcrypt))
 server.post('/register', register.handleRegister(db, bcrypt))
-server.get('/profile/:id', profile.handleProfileGet(db))
-server.post('/profile/:id', profile.handleProfileUpdate(db))
-server.put('/image', image.handleImage(db))
-server.post('/imageurl', image.handleApiCall)
+server.get('/profile/:id', auth.requireAuth, profile.handleProfileGet(db))
+server.post('/profile/:id', auth.requireAuth, profile.handleProfileUpdate(db))
+server.put('/image', auth.requireAuth,  image.handleImage(db))
+server.post('/imageurl', auth.requireAuth,  image.handleApiCall)
 
 server.listen(process.env.PORT || 3000, () => {
 	console.log(`Server is running on port ${process.env.PORT}`);
