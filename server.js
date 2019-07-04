@@ -26,9 +26,9 @@ const server = express();
 server.use(bodyParser.json());
 server.use(cors());
 server.use(morgan('combined'));
-server.use(compression);
+server.use(compression());
 
-server.get('/', index.handleIndex(db))
+server.get('/', index.handleIndex())
 server.post('/signin', signin.authSignin(db, bcrypt))
 server.post('/register', register.handleRegister(db, bcrypt))
 server.get('/profile/:id', auth.requireAuth, profile.handleProfileGet(db))
