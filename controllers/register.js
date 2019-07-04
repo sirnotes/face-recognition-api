@@ -4,7 +4,7 @@
 		return res.status(400).json('incomplete form submitted');
 	}
 
-	bcrypt.hash(password, null, null, (err, hash) => {
+	bcrypt.hash(password, 10, (err, hash) => {
 		db.transaction(trx => {
 			trx.insert({
 				hash: hash,
