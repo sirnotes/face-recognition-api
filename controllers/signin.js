@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const redis = require('redis');
 
 // setup Redis
-const redisClient = redis.createClient(process.env.REDIS_URI);
+const redisClient = redis.createClient(process.env.REDIS_URL);
 
 const handleSignin = (db, bcrypt, req, res) => {
 	const { email, password } = req.body;
@@ -30,7 +30,7 @@ const getAuthToken = (req, res) => {
 	redisClient.get(authorization, (err, reply) => {
 		if (err || !reply)
 			return res.status(400).json('unauthorized');
-		return res.json({id: reply}); 
+		return res.json({id: reply});
 	});
 }
 const createSession = (user) => {
@@ -65,7 +65,7 @@ const authSignin = (db, bcrypt) => (req, res) => {
 			.catch(err => res.status(400).json(err) );
 }
 
-module.exports = { 
+module.exports = {
 	authSignin,
 	redisClient
 }
