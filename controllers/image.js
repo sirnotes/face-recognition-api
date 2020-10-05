@@ -6,9 +6,9 @@ const app = new Clarifai.App({
 
 const handleApiCall = (req, res) => {
 	app.models
-		.predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
-		.then(data => res.json(data))
-		.catch(err => res.status(400).json('api call failed'))
+		.predict(Clarifai.DEMOGRAPHICS_MODEL, req.body.input)
+		.then(data => { res.json(data) })
+		.catch(err => res.status(400).json('api call failed.'))
 }
 
 const handleImage = (db) => (req, res) => {
