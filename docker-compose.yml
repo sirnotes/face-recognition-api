@@ -4,7 +4,7 @@ services:
   face-recognition-api:
     container_name: backend
     build: ./
-    command: npm start
+    command: npm run start:dev-docker
     working_dir: /usr/src/face-recognition-api
     environment:
       DATABASE_URL: postgres://admin:password@postgres:5432/face-recognition

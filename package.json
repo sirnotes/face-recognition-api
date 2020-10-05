@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "nodemon -r dotenv/config server.js",
+    "start:dev-docker": "nodemon -L -r dotenv/config server.js",
     "start": "node server.js"
   },
   "keywords": [],
