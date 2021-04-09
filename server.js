@@ -19,11 +19,27 @@ const db = knex({
 	}
 });
 
+const allowedOrigins = [
+	'http://localhost:3000',
+	'https://kennithnichol.github.io'
+]
+
 const server = express();
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(cors());
+server.use(cors({
+	origin: function( origin, callback) {
+		if (!origin) return callback(null, true);
+		if (allowedOrigins.indexOf(origin) === -1) {
+			var msg = 'The CORS policy for this site does not ' +
+				'allow access from the specified Origin.';
+			return callback(new Error(msg), false);
+		}
+
+		return callback(null, true);
+	}
+}));
 server.use(morgan('combined'));
 server.use(compression());
 
