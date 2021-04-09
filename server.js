@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const knex = require('knex');
@@ -22,7 +21,8 @@ const db = knex({
 
 const server = express();
 
-server.use(bodyParser.json());
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 server.use(cors());
 server.use(morgan('combined'));
 server.use(compression());
