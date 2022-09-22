@@ -21,7 +21,7 @@ const db = knex({
 
 const allowedOrigins = [
 	'http://localhost:3000',
-	'https://kennithnichol.github.io'
+	'https://sirnotes.github.io'
 ]
 
 const server = express();
